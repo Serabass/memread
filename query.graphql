@@ -1,0 +1,12 @@
+query a {
+    player {
+        ped {
+            health
+            money
+            nearestPeds {
+                health
+                money
+            }
+        }
+    }
+}
