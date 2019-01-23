@@ -27,4 +27,16 @@ export class Kernel32 {
     })
     public static ReadProcessMemory: (hProcess: number, lpBaseAddress: number, lpBuffer: Buffer,
                                       nSize: number, lpNumberOfBytesRead: Buffer) => number;
+    
+    // Example of ParameterDecorator usage
+    @FFI.Function({
+        returnValue: 'int',
+    })
+    public static ReadProcessMemory2: (
+                                       @Param('int') hProcess: number,
+                                       @Param('int') lpBaseAddress: number,
+                                       @Param('void *') lpBuffer: Buffer,
+                                       @Param('int') nSize: number,
+                                       @Param('int') lpNumberOfBytesRead: Buffer
+    ) => number;
 }
